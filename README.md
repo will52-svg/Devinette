@@ -22,4 +22,4 @@ Le jeu choisit une lettre entre A et Z. L'utilisateur a 10 tentatives pour la tr
 - Comparaison basée sur les codes ASCII des caractères.
 
 ---
-Auteur : [Ton Nom]
+Auteur : [Mian Adian William]
