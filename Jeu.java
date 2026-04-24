@@ -3,46 +3,49 @@ import java.util.Random;
 
 public class Jeu {
     public static void main(String[] args) {
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
+        // Préparation du jeu
+        Random rand = new Random();
+        Scanner sc = new Scanner(System.in);
 
-        // On génère une lettre au hasard entre A et Z
-        char lettreSecrete = (char) (random.nextInt(26) + 'A');
-        
-        int essaisMax = 10;
-        int compteur = 0;
-        char choixUtilisateur = ' ';
-        boolean victoire = false;
+        // Tirage du nombre entre 1 et 100
+        int nombreMystere = rand.nextInt(100) + 1;
+        int maxEssais = 10;
+        int tentatives = 0;
+        boolean gagne = false;
 
-        System.out.println("--- JEU : DEVINE LA LETTRE (A-Z) ---");
-        System.out.println("Indices : l'alphabet suit l'ordre A, B, C...");
+        System.out.println("--- JEU DU NOMBRE MYSTÈRE (1-100) ---");
+        System.out.println("Tu as 10 essais pour trouver le bon chiffre.");
 
-        // Boucle principale du jeu
-        while (compteur < essaisMax) {
-            System.out.print("\nEssai " + (compteur + 1) + "/" + essaisMax + " - Votre lettre : ");
-            
-            // On récupère juste le premier caractère et on le force en majuscule
-            String input = scanner.next().toUpperCase();
-            choixUtilisateur = input.charAt(0);
-            compteur++;
+        // Boucle principale
+        while (tentatives < maxEssais) {
+            System.out.print("Essai " + (tentatives + 1) + "/" + maxEssais + " : ");
 
-            // Vérification de la réponse
-            if (choixUtilisateur < lettreSecrete) {
-                System.out.println("C'est plus loin dans l'alphabet !");
-            } else if (choixUtilisateur > lettreSecrete) {
-                System.out.println("C'est plus tôt dans l'alphabet !");
+            // Vérifie si l'utilisateur entre bien un nombre
+            if (sc.hasNextInt()) {
+                int choix = sc.nextInt();
+                tentatives++;
+
+                // Comparaison avec le nombre mystère
+                if (choix < nombreMystere) {
+                    System.out.println("C'est plus grand !");
+                } else if (choix > nombreMystere) {
+                    System.out.println("C'est plus petit !");
+                } else {
+                    System.out.println("Bravo, trouvé en " + tentatives + " essais.");
+                    gagne = true;
+                    break; // On arrête la boucle si c'est gagné
+                }
             } else {
-                System.out.println("Gagné ! La lettre était bien " + lettreSecrete);
-                victoire = true;
-                break; // On arrête tout si c'est trouvé
+                System.out.println("Entrée invalide, tape un nombre entier.");
+                sc.next(); // On vide le buffer pour éviter les bugs
             }
         }
 
-        // Si on sort de la boucle sans avoir trouvé
-        if (!victoire) {
-            System.out.println("\nPerdu... Le secret était : " + lettreSecrete);
+        // Message de fin si la boucle est terminée
+        if (!gagne) {
+            System.out.println("Perdu... Le nombre était : " + nombreMystere);
         }
 
-        scanner.close();
+        sc.close();
     }
 }
