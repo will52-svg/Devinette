@@ -1,25 +1,18 @@
-# Jeu de devinettes (Java)
+# Jeu du nombre mystère
 
-Projet réalisé en Java consistant à deviner une lettre aléatoire générée par le programme.
+Petit projet de jeu en Java : il faut deviner un nombre aléatoire compris entre 1 et 100.
 
-## Fonctionnement
-Le jeu choisit une lettre entre A et Z. L'utilisateur a 10 tentatives pour la trouver.
-- Si la lettre saisie est plus loin dans l'alphabet, le programme l'indique.
-- Si la lettre saisie est plus tôt, le programme l'indique.
+## Règles
+- Le joueur a 10 tentatives maximum.
+- Le programme indique si le nombre cherché est plus grand ou plus petit que la saisie.
 
-## Prérequis
-- Java JDK installé
-- IntelliJ IDEA (ou autre IDE Java)
+## Installation
+1. Cloner le dépôt.
+2. Ouvrir le dossier dans IntelliJ IDEA.
+3. Lancer la classe `Jeu.java`.
 
-## Comment lancer le projet
-1. Cloner le dépôt ou télécharger le projet.
-2. Ouvrir le dossier dans IntelliJ.
-3. Lancer la classe `Jeu.java` avec la méthode `main`.
+## Notes
+- Utilisation de `Scanner` pour lire les entrées clavier.
+- Boucle `while` pour gérer la limite des essais.
 
-## Détails techniques
-- Utilisation de `Scanner` pour la saisie clavier.
-- Utilisation de la boucle `while` pour limiter les 10 essais.
-- Comparaison basée sur les codes ASCII des caractères.
-
----
 Auteur : [Mian Adian William]
