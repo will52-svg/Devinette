@@ -8,7 +8,7 @@ public class Jeu {
 
         // On génère une lettre au hasard entre A et Z
         char lettreSecrete = (char) (random.nextInt(26) + 'A');
-
+        
         int essaisMax = 10;
         int compteur = 0;
         char choixUtilisateur = ' ';
@@ -20,7 +20,7 @@ public class Jeu {
         // Boucle principale du jeu
         while (compteur < essaisMax) {
             System.out.print("\nEssai " + (compteur + 1) + "/" + essaisMax + " - Votre lettre : ");
-
+            
             // On récupère juste le premier caractère et on le force en majuscule
             String input = scanner.next().toUpperCase();
             choixUtilisateur = input.charAt(0);
